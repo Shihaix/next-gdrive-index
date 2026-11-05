@@ -67,7 +67,7 @@ const config: z.input<typeof Schema_Config> = {
      * Then you need to encrypt it using `/api/internal/encrypt?q=:shared_drive_id` route
      */
     isTeamDrive: true,
-    sharedDrive: "77bfa156c9c9d159112fcb0494ed8545bdaf7a3d567cd760ba2e2e2cd33fcbfc",
+    sharedDrive: "4a2900b157b9a66bc9a55292f2d8b730a6e5676d4daf4199bc0594aace86c88d288311bbe37739608c5780a7061ac0641a;0f5da14b203d70497303a1ac",
 
     defaultQuery: ["trashed = false", "(not mimeType contains 'google-apps' or mimeType contains 'folder')"],
     defaultField:
@@ -253,25 +253,7 @@ const config: z.input<typeof Schema_Config> = {
      *  external?: boolean
      * }
      */
-    navbarItems: [
-      {
-        icon: "FileText",
-        name: "Documentation",
-        href: "https://github.com/mbahArip/next-gdrive-index/wiki",
-        external: true,
-      },
-      {
-        icon: "Github",
-        name: "Github",
-        href: "https://www.github.com/mbaharip",
-        external: true,
-      },
-      {
-        icon: "Mail",
-        name: "Contact",
-        href: "mailto:support@mbaharip.com",
-      },
-    ],
+    navbarItems: [],
 
     /**
      * Add support / donation links on the navbar
@@ -282,23 +264,41 @@ const config: z.input<typeof Schema_Config> = {
      *  href: string,
      * }
      */
-    supports: [
-      {
-        name: "Paypal",
-        currency: "USD",
-        href: "https://paypal.me/mbaharip",
-      },
-      {
-        name: "Ko-fi",
-        currency: "USD",
-        href: "https://ko-fi.com/mbaharip",
-      },
-      {
-        name: "Saweria",
-        currency: "IDR",
-        href: "https://saweria.co/mbaharip",
-      },
-    ],
+    supports: [],
+
+    /**
+     * Footer content
+     * You can also set it to empty array if you don't want to use it
+     *
+     * Basic markdown is supported (bold, italic, and link)
+     * External link will be opened in new tab
+     *
+     * Template:
+     * - {{ year }} will be replaced with the current year
+     * - {{ repository }} will be replaced with the original repository link
+     * - {{ poweredBy }} will be replaced with "Powered by next-gdrive-index", linked to the repository
+     * - {{ author }} will be replaced with author from siteAuthor config above (If it's not set, it will be set to mbaharip)
+     * - {{ version }} will be replaced with the current version
+     * - {{ siteName }} will be replaced with the siteName config above
+     * - {{ handle }} will be replaced with the twitter handle from twitterHandle config above
+     * - {{ creator }} will be replaced with mbaharip if you want to credit me
+     */
+    footer: [
+  {
+    "value": "{{ poweredBy }}"
+  },
+  {
+    "value": "Made with ❤️ by Shihai"
+  },
+  {
+    "value": ""
+  }
+],
+    /**
+     * Add page load time on the footer
+     * If you don't want to use it, you can set it to false
+     */
+    experimental_pageLoadTime: false,
   },
 };
 
