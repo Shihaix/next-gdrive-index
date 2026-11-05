@@ -1,7 +1,8 @@
-import { type z } from "zod";
-import { BASE_URL, IS_DEV } from "~/constant";
+import { z } from "zod";
 
-import { type Schema_Config } from "~/types/schema";
+import { isDev } from "~/utils/isDev";
+
+import { Schema_Config } from "~/types/schema";
 
 const config: z.input<typeof Schema_Config> = {
   /**
