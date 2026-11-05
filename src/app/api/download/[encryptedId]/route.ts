@@ -112,7 +112,7 @@ If you've already entered the password, please make sure your browser is not blo
       });
     });
 
-    return new NextResponse(fileBuffer, {
+    return new NextResponse(new Uint8Array(fileBuffer), {
       status: 200,
       headers: {
         "Content-Type": fileMeta.data.mimeType || "application/octet-stream",
