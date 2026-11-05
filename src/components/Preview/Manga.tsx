@@ -100,7 +100,7 @@ export default function PreviewManga({ file }: Props) {
             file.ondata = (err, data, final) => {
               if (err) throw err;
               // Check if the file is an image
-              if (!file.name.toLowerCase().includes(".jpg" || ".jpeg" || ".png" || ".gif" || ".webp")) return;
+              if (!/\.(jpe?g|png|gif|webp)$/i.test(file.name)) return;
               if (!final) return; // Skip if not fully loaded
 
               const blob = new Blob([data]);
